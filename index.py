@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from routes.crag import crag
 from routes.festivals import festival
 from routes.sectors import sector
+from routes.stats import stats
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
@@ -20,7 +21,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-routers = crag, sector, festival
+routers = crag, sector, festival, stats
 
 for router in routers:
     app.include_router(router)

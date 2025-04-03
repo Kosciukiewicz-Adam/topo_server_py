@@ -8,15 +8,7 @@ sector = APIRouter()
 
 @sector.get("/sectors")
 async def get_all_sectors():
-    print("----------------")
-    print("get all sectors")
-    print(sectorsEntity(connection.test.sectors.find()))
-
-    sectors =  sectorsEntity(connection.test.sectors.find())
-    
-    # for sector in sectors:
-    #     sector["routesAmount"] = await get_routes_amount(sector._id)
-
+    sectors = sectorsEntity(connection.test.sectors.find())
     return sectors
 
 @sector.get("/sectors/{sectorId}")
